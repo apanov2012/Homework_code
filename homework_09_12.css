@@ -1,0 +1,106 @@
+﻿html, body
+{
+    height: 100%;
+    margin: 0 0;
+    padding: 0 0;
+}
+.screen
+{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    justify-content: center;
+    align-items: center;
+}
+
+.half_screen /* Фоновые блоки для кнопочного блока и всплывающих статей */
+{
+    display: flex;
+    height: 100%;
+    width: 50vw;
+    border: 1px solid black;
+    position: relative;
+    z-index: auto;
+}
+.half_screen:nth-of-type(1) /* фоновый блок для кнопочного блока */
+{
+    background-color: pink;
+    justify-content: center;
+    align-items: center;
+}
+.half_screen:nth-of-type(2) /* фоновый блок для всплывающих статей*/
+{
+    background-color: cadetblue;
+}
+
+.buttons_back /* фоновый блок для кнопок */
+{
+    display: flex;
+    height: 30vw;
+    width: 15vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: purple;
+    position: relative;
+}
+.button /* кнопки */
+{
+    display: flex;
+    height: 7vw;
+    width: 12vw;
+    border: 1px solid black;
+    margin: 1vw 0;
+    background-color: aqua;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+}
+.text /* статьи */
+{
+    display: flex;
+    height: 5vw;
+    width: 5vw;
+    border: 1px solid black;
+    position: absolute;
+    z-index: 1; /* приоретизация отрисовки блоков со статьями */
+}
+.text_1, .text_2, .text_3 /* статьи, общие свойства */
+{
+    left: 55vw;
+    font-size: 5px;
+    visibility: hidden;
+}
+.text_1 /* статья на первую кнопку */
+{
+    background-color: red;
+}
+.text_2 /* статья на вторую кнопку */
+{
+    background-color: orange;
+}
+.text_3 /* статья на третью кнопку */
+{
+    background-color: yellow;
+}
+
+
+.button_1:hover ~.text_1 /* взаимодействие с блоком статьи 1 при наведении на кнопку 1*/
+{
+    visibility: visible;
+    transform: rotate(720deg) scale(7,7); /* равномерное увеличение блока статьи в 7 раз от изначального с вращением на 720 градусов */
+    transition: 2s; /* продолжительность процесса появления блока статьи */
+}
+.button_2:hover ~.text_2 /* взаимодействие с блоком статьи 2 при наведении на кнопку 2*/
+{
+    visibility: visible;
+    transform: rotate(-720deg) scale(7,7); /* равномерное увеличение блока статьи в 7 раз от изначального с обратным вращением на 720 градусов */
+    transition: 2s; /* продолжительность процесса появления блока статьи */
+}
+.button_3:hover ~ .text_3 /* взаимодействие с блоком статьи 3 при наведении на кнопку 3*/
+{
+    visibility: visible;
+    transform: rotate(720deg) scale(7,7); /* равномерное увеличение блока статьи в 7 раз от изначального с вращением на 720 градусов */
+    transition: 2s; /* продолжительность процесса появления блока статьи */
+}
